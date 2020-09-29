@@ -6,13 +6,6 @@ import (
 	"strings"
 
 	aw "github.com/deanishe/awgo"
-	"github.com/urfave/cli"
-)
-
-const (
-	appName    = "ghq-alfred"
-	appDesc    = "Search your local repos"
-	appVersion = "0.4.0"
 )
 
 var (
@@ -21,11 +14,8 @@ var (
 	bitBucketIcon = &aw.Icon{Value: path.Join("bitbucket-logo.png")}
 	gitIcon       = &aw.Icon{Value: path.Join("git-logo.png")}
 	modKeys       = []aw.ModKey{
-		aw.ModCmd,
-		aw.ModOpt,
-		aw.ModFn,
-		aw.ModCtrl,
 		aw.ModShift,
+		aw.ModFn,
 	}
 )
 
@@ -33,14 +23,10 @@ func init() {
 	wf = aw.New()
 }
 
-func run() {
-	app := cli.NewApp()
-	app.Name = appName
-	app.Usage = appDesc
-	app.Version = appVersion
-	app.Action = func(c *cli.Context) error {
-		query := strings.Trim(c.Args()[0], " \n")
-		repos := c.Args()[1:c.NArg()]
+func main() {
+	wf.Run(func() {
+		query := strings.Trim(os.Args[1], " \n")
+		repos := os.Args[2:len(os.Args)]
 		for _, repo := range repos {
 			addNewItem(repo)
 		}
@@ -49,13 +35,7 @@ func run() {
 		}
 		wf.WarnEmpty("No matching repository", "Try different query?")
 		wf.SendFeedback()
-		return nil
-	}
-	app.Run(os.Args)
-}
-
-func main() {
-	wf.Run(run)
+	})
 }
 
 func addNewItem(repo string) {
@@ -68,7 +48,7 @@ func addNewItem(repo string) {
 		Icon(getIcon(repoPath)).
 		Valid(true)
 	for _, modKey := range modKeys {
-		mod := createModItem(repoPath, repo, modKey)
+		mod := createExtraModItem(repoPath, repo, modKey)
 		it.SetModifier(mod)
 	}
 }
@@ -92,32 +72,21 @@ func getDomainName(repo_path []string) string {
 	return repo_path[len(repo_path)-3]
 }
 
-func createModItem(repo []string, path string, modKey aw.ModKey) *aw.Modifier {
-	var (
-		arg string
-		sub string
-	)
+func createExtraModItem(repo []string, path string, modKey aw.ModKey) *aw.Modifier {
+	var arg string
 	switch modKey {
-	case aw.ModCmd:
-		arg = path
-		sub = "Open in Finder."
 	case aw.ModShift:
+		// Returns repository url with shift modifier.
+		// Users can use it for thing like opening in a browser.
 		arg = "https://" + excludeDomain(repo, false) + "/"
-		sub = "Open '" + arg + "' in browser."
-	case aw.ModCtrl:
-		arg = path
-		sub = "Open in editor."
 	case aw.ModFn:
-		arg = path
-		sub = "Open in terminal app."
-	case aw.ModOpt:
+		// Returns [repo owner]/[repo name] with alt modifier.
+		// Users can use it for thing like searching on Google.
 		arg = excludeDomain(repo, true)
-		sub = "Search '" + arg + "' with google."
 	}
 	mod := &aw.Modifier{Key: modKey}
 	return mod.
 		Arg(arg).
-		Subtitle(sub).
 		Valid(true)
 }
 

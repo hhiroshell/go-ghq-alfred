@@ -3,9 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>ghq.alfred.info.poyo</string>
-	<key>category</key>
-	<string>Tools</string>
+	<string>com.github.hhiroshell.ghq-alfred</string>
 	<key>connections</key>
 	<dict>
 		<key>B12A5118-3473-4B84-933C-D4EDAEA6E76B</key>
@@ -22,11 +20,11 @@
 			</dict>
 			<dict>
 				<key>destinationuid</key>
-				<string>96E2FF6E-1478-423A-B6C3-A58774FC8605</string>
+				<string>B1852B2E-3668-49A0-AA7F-93C4BABDA154</string>
 				<key>modifiers</key>
-				<integer>131072</integer>
+				<integer>262144</integer>
 				<key>modifiersubtext</key>
-				<string></string>
+				<string>Oepn in the Intellij IDEA.</string>
 				<key>vitoclose</key>
 				<false/>
 			</dict>
@@ -36,17 +34,17 @@
 				<key>modifiers</key>
 				<integer>1048576</integer>
 				<key>modifiersubtext</key>
-				<string></string>
+				<string>Open in the Goland.</string>
 				<key>vitoclose</key>
 				<false/>
 			</dict>
 			<dict>
 				<key>destinationuid</key>
-				<string>B1852B2E-3668-49A0-AA7F-93C4BABDA154</string>
+				<string>96E2FF6E-1478-423A-B6C3-A58774FC8605</string>
 				<key>modifiers</key>
-				<integer>262144</integer>
+				<integer>131072</integer>
 				<key>modifiersubtext</key>
-				<string></string>
+				<string>Open in your browser.</string>
 				<key>vitoclose</key>
 				<false/>
 			</dict>
@@ -54,9 +52,9 @@
 				<key>destinationuid</key>
 				<string>6F1B7F2B-2845-4F04-AD88-B994A02784AA</string>
 				<key>modifiers</key>
-				<integer>8388608</integer>
+				<integer>524288</integer>
 				<key>modifiersubtext</key>
-				<string></string>
+				<string>Open in your terminal.</string>
 				<key>vitoclose</key>
 				<false/>
 			</dict>
@@ -64,18 +62,18 @@
 				<key>destinationuid</key>
 				<string>F808A1AC-CE6A-4A4B-83A1-544113E14EC7</string>
 				<key>modifiers</key>
-				<integer>524288</integer>
+				<integer>8388608</integer>
 				<key>modifiersubtext</key>
-				<string></string>
+				<string>Search on Google.</string>
 				<key>vitoclose</key>
 				<false/>
 			</dict>
 		</array>
 	</dict>
 	<key>createdby</key>
-	<string>pudding</string>
+	<string>hhiroshell</string>
 	<key>description</key>
-	<string>Search your local repos with ghq</string>
+	<string>Search your local repos with ghq - customized by hhiroshell, based on pudding's ghq-alfred</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
@@ -135,7 +133,7 @@
 			<key>config</key>
 			<dict>
 				<key>openwith</key>
-				<string></string>
+				<string>/Applications/Visual Studio Code.app</string>
 				<key>sourcefile</key>
 				<string></string>
 			</dict>
@@ -143,6 +141,36 @@
 			<string>alfred.workflow.action.openfile</string>
 			<key>uid</key>
 			<string>E91BA8FE-EE09-405E-B1FB-581FCA632078</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>openwith</key>
+				<string>/Applications/IntelliJ IDEA CE.app</string>
+				<key>sourcefile</key>
+				<string></string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openfile</string>
+			<key>uid</key>
+			<string>B1852B2E-3668-49A0-AA7F-93C4BABDA154</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>openwith</key>
+				<string>/Applications/GoLand.app</string>
+				<key>sourcefile</key>
+				<string></string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openfile</string>
+			<key>uid</key>
+			<string>3CBDC6B0-5F39-4F30-ACF4-DCAC458BA130</string>
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
@@ -164,36 +192,6 @@
 			<string>96E2FF6E-1478-423A-B6C3-A58774FC8605</string>
 			<key>version</key>
 			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>openwith</key>
-				<string></string>
-				<key>sourcefile</key>
-				<string></string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openfile</string>
-			<key>uid</key>
-			<string>3CBDC6B0-5F39-4F30-ACF4-DCAC458BA130</string>
-			<key>version</key>
-			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>openwith</key>
-				<string>/Applications/Visual Studio Code.app</string>
-				<key>sourcefile</key>
-				<string></string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openfile</string>
-			<key>uid</key>
-			<string>B1852B2E-3668-49A0-AA7F-93C4BABDA154</string>
-			<key>version</key>
-			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -259,7 +257,7 @@ bitbucket logo
 			<key>xpos</key>
 			<integer>490</integer>
 			<key>ypos</key>
-			<integer>240</integer>
+			<integer>485</integer>
 		</dict>
 		<key>B12A5118-3473-4B84-933C-D4EDAEA6E76B</key>
 		<dict>
@@ -273,7 +271,7 @@ bitbucket logo
 			<key>xpos</key>
 			<integer>490</integer>
 			<key>ypos</key>
-			<integer>490</integer>
+			<integer>240</integer>
 		</dict>
 		<key>E91BA8FE-EE09-405E-B1FB-581FCA632078</key>
 		<dict>
@@ -295,9 +293,11 @@ bitbucket logo
 		<key>ghq</key>
 		<string>/usr/local/bin/ghq</string>
 	</dict>
+	<key>variablesdontexport</key>
+	<array/>
 	<key>version</key>
-	<string>0.4.0</string>
+	<string>0.5.0</string>
 	<key>webaddress</key>
-	<string>https://www.poyo.info/</string>
+	<string>https://github.com/hhiroshell</string>
 </dict>
 </plist>
