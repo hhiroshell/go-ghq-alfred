@@ -1,12 +1,14 @@
 # go-ghq-alfred
 
-![](https://github.com/pddg/go-ghq-alfred/workflows/test/badge.svg?branch=master)
+![](https://github.com/hhiroshell/go-ghq-alfred/workflows/test/badge.svg?branch=master)
 
 Search local repos with ghq in Alfred Workflow.
 
+This repository is forked from [pddg/go-ghq-alfred](https://github.com/pddg/go-ghq-alfred). Please see also original one.
+
 ## Environment
 
-* Alfred 3.4 (or later)
+* Alfred 4.1 (or later)
 * [ghq](https://github.com/motemen/ghq)
 
 ## Usage
@@ -27,27 +29,22 @@ Filtering the result of `ghq list -p` with `{query}` and show them.
 
 You should specify path to `ghq`. Open this workflow settings, and edit environment variables. Default is `/usr/local/bin/ghq`.  
 
-And I recommend you to specify a editor and terminal app. Default is `Visual Studio Code.app` and `iTerm.app`
-
 ### Modifier key options
 
-* **Enter**: Open repository in Finder.
+* **Enter**: Open repository in the Visual Studio Code.
+* **Command + Enter**: Open repository in the Goland.
+* **Control + Enter**: Open repository in the Intellij IDEA.
 * **Shift + Enter**: Open repository in your default browser.
-* **Command + Enter**: Same as Enter only.
-* **Option + Enter**: Search "user/repo" in google.
-* **Fn + Enter**: Open repository in your terminal.
-* **Control + Enter**: Open repository in your editor.
+* **Option + Enter**: Open repository in your terminal.
+* **Fn + Enter**: Search "user/repo" in google.
 
 ## Build
 
 My environment is as follows.
 
-* Go 1.9
-* Glide 0.12.3
+* Go 1.15
 
 ```bash
-$ glide update
-$ go test $(glide novendor) -v
 $ go build .
 ```
 
@@ -65,7 +62,7 @@ Icon made by Swifticons from www.flaticon.com
 
 ## Author
 
-pudding
+Customized by hhiroshell, based on [pudding's ghq-alfred](https://github.com/pddg/go-ghq-alfred)
 
 ## License
 
